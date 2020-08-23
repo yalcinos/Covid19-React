@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 const Chart = (props) => {
   const classes = useStyles();
   const { dataDaily } = props;
-  console.log(dataDaily);
+
   const lineChart = dataDaily[0] ? (
     <Line
       data={{

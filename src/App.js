@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
-
 import styles from "./App.module.css";
 import { Cards, Chart, Country } from "./components";
-import { fetchData, fetchDailyData } from "./api";
+import { fetchData, fetchDailyData, fetchCountries } from "./api";
 
 function App() {
   const [covidData, setcovidData] = useState();
   const [loading, setLoading] = useState(true);
   const [dailyData, setDailyData] = useState([]);
-
+  const [countriesData, setCountriesData] = useState([]);
+  console.log(countriesData);
   useEffect(() => {
     fetchAPIData();
     dailyCases();
+    countryList();
   }, []);
 
   const fetchAPIData = async () => {
@@ -27,12 +27,15 @@ function App() {
     const data = response.data;
     setDailyData(data);
   };
-
+  const countryList = async () => {
+    const response = await fetchCountries();
+    setCountriesData(response);
+  };
   return (
     <div className={styles.container}>
       <Cards data={covidData} isLoading={loading} />
+      <Country data={countriesData} />
       <Chart dataDaily={dailyData} />
-      {/* <Country /> */}
     </div>
   );
 }
