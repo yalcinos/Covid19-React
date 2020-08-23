@@ -8,8 +8,8 @@ import { fetchData, fetchDailyData } from "./api";
 function App() {
   const [covidData, setcovidData] = useState();
   const [loading, setLoading] = useState(true);
-  const [dailyData, setDailyData] = useState({});
-  console.log(dailyData);
+  const [dailyData, setDailyData] = useState([]);
+
   useEffect(() => {
     fetchAPIData();
     dailyCases();
@@ -24,14 +24,15 @@ function App() {
   };
   const dailyCases = async () => {
     const response = await fetchDailyData();
-    setDailyData(response);
+    const data = response.data;
+    setDailyData(data);
   };
 
   return (
     <div className={styles.container}>
       <Cards data={covidData} isLoading={loading} />
-      <Chart data={dailyData} />
-      <Country />
+      <Chart dataDaily={dailyData} />
+      {/* <Country /> */}
     </div>
   );
 }
