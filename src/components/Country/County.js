@@ -19,13 +19,13 @@ const useStyles = makeStyles((theme) => ({
 
 const Country = (props) => {
   const classes = useStyles();
-  const { data } = props;
+  const { data, onChangeOption } = props;
 
   const renderSelectOption = () => {
     const countryList =
       data.length !== 0
         ? data.map((country, index) => {
-            return <option value={index.toString()}>{country.name}</option>;
+            return <option value={country.name}>{country.name}</option>;
           })
         : null;
     return countryList;
@@ -35,6 +35,9 @@ const Country = (props) => {
     <FormControl className={classes.formControl}>
       <InputLabel htmlFor="age-native-simple">Countries</InputLabel>
       <Select
+        onChange={(event) => {
+          onChangeOption(event.target.value);
+        }}
         native
         inputProps={{
           name: "Countries",

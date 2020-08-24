@@ -4,11 +4,12 @@ import { Cards, Chart, Country } from "./components";
 import { fetchData, fetchDailyData, fetchCountries } from "./api";
 
 function App() {
-  const [covidData, setcovidData] = useState();
+  const [covidData, setcovidData] = useState({});
   const [loading, setLoading] = useState(true);
   const [dailyData, setDailyData] = useState([]);
   const [countriesData, setCountriesData] = useState([]);
-  console.log(countriesData);
+  const [country, setCountry] = useState();
+
   useEffect(() => {
     fetchAPIData();
     dailyCases();
@@ -17,10 +18,17 @@ function App() {
 
   const fetchAPIData = async () => {
     const response = await fetchData();
+
     setcovidData({ data: response });
     if (response !== undefined || response != null) {
       setLoading(false);
     }
+  };
+  const handleOnChangeDropDown = async (country) => {
+    const responseCountry = await fetchData(country);
+    setCountry(country);
+
+    setcovidData({ data: responseCountry });
   };
   const dailyCases = async () => {
     const response = await fetchDailyData();
@@ -34,8 +42,13 @@ function App() {
   return (
     <div className={styles.container}>
       <Cards data={covidData} isLoading={loading} />
-      <Country data={countriesData} />
-      <Chart dataDaily={dailyData} />
+      <Country onChangeOption={handleOnChangeDropDown} data={countriesData} />
+      <Chart
+        dataDaily={dailyData}
+        data={covidData}
+        isLoading={loading}
+        country={country}
+      />
     </div>
   );
 }

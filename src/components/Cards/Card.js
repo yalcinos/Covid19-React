@@ -43,7 +43,6 @@ const Cards = (props) => {
     return (
       <Grid container spacing={3} justify="center">
         {patientStatus.map((status, index) => {
-          console.log(status);
           return (
             <Grid
               key={index}
