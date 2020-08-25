@@ -1,5 +1,5 @@
-# ReactJS-Movie-List
-> List  movies and TV Shows with The Movie Database API using React.js
+# ReactJS - Covid Tracker
+> Show latest covid data as a graphical way as well as numerical way.
 
 
 
