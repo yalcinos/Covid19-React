@@ -61,7 +61,7 @@ const Chart = (props) => {
         }}
         options={{
           legend: { display: false },
-          title: { display: true, text: `current state ${country}` },
+          title: { display: true, text: `Current Status in ${country}` },
         }}
       />
     ) : null;

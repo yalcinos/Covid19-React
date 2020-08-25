@@ -5,27 +5,40 @@ import cn from "classnames";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   container: {
     margin: "50px 0",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 30px",
+    },
   },
 
   deaths: {
     borderBlockWidth: 10,
-    margin: "0 2%",
     borderBottom: "10px solid tomato",
+    marginLeft: "4%",
+    [theme.breakpoints.down("sm")]: {
+      margin: "5% 0",
+    },
   },
   confirmed: {
     borderBlockWidth: 10,
-    margin: "0 2%",
     borderBottom: "10px solid green",
+    marginLeft: "4%",
+    [theme.breakpoints.down("sm")]: {
+      margin: "5% 0",
+    },
   },
+
   recovered: {
     borderBlockWidth: 10,
-    margin: "0 2%",
     borderBottom: "10px solid blue",
+    marginLeft: "4%",
+    [theme.breakpoints.down("sm")]: {
+      margin: "5% 0",
+    },
   },
-});
+}));
 
 //Card Component
 const Cards = (props) => {

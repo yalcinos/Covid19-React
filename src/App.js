@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./App.module.css";
 import { Cards, Chart, Country } from "./components";
 import { fetchData, fetchDailyData, fetchCountries } from "./api";
+import { Typography } from "@material-ui/core";
 
 function App() {
   const [covidData, setcovidData] = useState({});
@@ -41,6 +42,7 @@ function App() {
   };
   return (
     <div className={styles.container}>
+      <Typography variant={"h3"}>COVID-19 TRACKER APP</Typography>
       <Cards data={covidData} isLoading={loading} />
       <Country onChangeOption={handleOnChangeDropDown} data={countriesData} />
       <Chart
