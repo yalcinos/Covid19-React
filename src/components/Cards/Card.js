@@ -88,7 +88,7 @@ const Cards = (props) => {
                     {new Date(statisticData.lastUpdate).toDateString()}
                   </Typography>
                   <Typography variant="body2">
-                    Number of active cases of Covid-19
+                    Number of {status} cases of Covid-19
                   </Typography>
                 </CardContent>
               </Grid>

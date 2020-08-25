@@ -32,6 +32,9 @@ const Chart = (props) => {
           },
         ],
       }}
+      options={{
+        title: { display: true, text: `Current Status in the world` },
+      }}
     />
   ) : null;
 
