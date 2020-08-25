@@ -4,7 +4,7 @@
 
 
 
-![](movies.gif)
+![](app.gif)
 
 ## Installation
 
