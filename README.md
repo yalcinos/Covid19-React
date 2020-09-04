@@ -1,5 +1,5 @@
 # ReactJS - Covid Tracker
-> Show latest covid data as a graphical way as well as numerical way.
+> Show the latest COVID data as a graphical way as well as a numerical way.
 
 
 
